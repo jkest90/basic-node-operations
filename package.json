@@ -15,5 +15,8 @@
     "url": "https://github.com/jkest90/basic-node-operations/issues"
   },
   "homepage": "https://github.com/jkest90/basic-node-operations#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "head": "github:visionmedia/node-head"
+  }
 }

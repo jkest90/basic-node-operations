@@ -1,0 +1,82 @@
+1) Run the commands sort, wc, and uniq on the command.js file. Explain how they work and what the output was.
+
+   - sort
+      + The sort utility, by default, organizes code in alphabetical order. In command.js, it also groups things by the amount of white space before each line. For instance, if there are four spaces before code begins on different lines, it'll group those together, and sort alphabetically. If there are two space before a line of code starts, it'll group them together as well, and also sort alphabetically. Closing brackets appear towards the end of each group. Each group is sorted with the largest amount of whitespace at the beginning, and the smallest amount, or none, at the bottom.
+
+   - wc
+      + The wc utility outputs the number of lines, word count, and byte or characters count in command.js. In this instance its output was 52, 237, and 1779.
+
+   - uniq
+      + The uniq utility filters out the repeated lines in a file. It is a tool that helps to detect the adjacent duplicate lines and also deletes those duplicate lines.
+
+2) Using the pipe (|), connect at least two commands and run it on command.js. Explain what the output was and why the specific data was outputted.
+
+   - `cat commands.js | grep 'function' `
+      + reads the content of commands.js and prints out all lines with the word 'function'
+
+   - cat commands.js | pbcopy
+      + this will copy the contents of commands.js to the clipboard.
+
+3) Programming Challenge:
+
+   - Given a string, reverse the order of characters in each word within a sentence while maintaining the original word order and whitespace and return the string. To improve your problem-solving experience, use the suggested functions to solve the code.
+
+   function reverseString(inputString) {
+
+      // solve problem
+
+   }
+
+6)
+
+/* Given a string, reverse the order of characters in each word within a sentence while maintaining the original word order and whitespace and return the string. To improve your problem-solving experience, use the suggested functions to solve the problem.
+
+Example
+Input: "I'm learning to program algorithms!"
+Output: "m'I gninrael ot margorp !smhtirogla"
+
+
+// 1. Split string into an array, each word is an item.
+
+// [" 'I'm', 'learning', 'to', 'program', 'algorithms' "];
+
+// 2. Iterate through array. Split each item as its own array.'
+
+// [" ['I'm'], ['learning'], ['to'], ['program'], ['algorithms!'] "];
+
+// 3. Reverse each item &...
+// 4. Push item into new array...
+
+// ["['m','\'','I'], ['g','n','i','n','r','a','e','l'], [ 'o', 't'], ['m','a','r','g','o','r','p'], ['!','s','m','h','t','i','r','o','g','l', 'a'] "]
+
+// 5. ...while joining each separate string in the item into its own string.
+
+[ 'm\'I', 'gninrael', 'ot', 'margorp', '!smhtirogla' ]
+
+// 6. Return reversed array, and join each item into a full string based on separation by space.
+
+'m\'I gninrael ot margorp !smhtirogla'
+
+
+function reverseString(str) {
+  // 1) split string into an array, with each word separate strings.
+  let reversedArr = str.split(' ');
+  // ["I'm, 'learning', 'to', program', algorithms" ];
+  let reversed = [];
+
+  reversedArr.forEach((element) => {
+    // 2) split each element into its own array, with letters separated as strings;
+    // 3) reverse order or strings within each element.
+    let arrItem = element.split('').reverse();
+
+    // 4) join item strings as individual items and push into reverse. repeat.
+    reversed.push(arrItem.join(''));
+    console.log(reversed)
+  });
+  // 5) return reversed array and join items as whole string.
+  return reversed.join(' ');
+}
+
+
+
+reverseString("I'm learning to program algorithms!");
